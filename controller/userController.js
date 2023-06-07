@@ -61,7 +61,7 @@ const loginUser = ansyncHandler(
                     },
                 },
                 secretOrPrivateKey = process.env.ACCESS_TOKEN_SECRET,
-                {expiresIn: "1m"}
+                {expiresIn: "20m"}
             );
             res.status(200).json({accessToken});
         } else {
@@ -76,7 +76,7 @@ const loginUser = ansyncHandler(
 //@access public
 const currentUser = ansyncHandler(
     async (req,res)=>{
-        res.status(200).json({message:"Current user Info."});
+        res.json(req.user);
     }
 );
 
